@@ -1,0 +1,483 @@
+const User = require('../models/user')
+const { pagination, pagingData } = require('../utils/helper')
+
+const fetch = async (req, res) => {
+    const { page, size } = req.query;
+    const { limit, offset } = pagination(page-1, size);
+
+    try {
+        
+        let data = await User.findAndCountAll({ 
+            attributes: ['id', 'username', 'role'],
+            where: {}, 
+            limit, 
+            offset 
+        })
+
+        data = pagingData(data, page-1, limit)
+
+        return res.status(200).json({
+            success: true,
+            message: 'Sukses mengambil data',
+            data
+        })
+
+        /* 
+            #swagger.tags = ['User']
+            #swagger.summary = 'Semua data'
+            #swagger.security = [{
+            "Token": []
+            }]
+            #swagger.parameters['page'] = {
+                in: 'query',
+                description: 'Parameter untuk pagination',
+            }
+            #swagger.parameters['size'] = {
+                in: 'query',
+                description: 'Parameter untuk limit data',
+            }
+
+            #swagger.responses[200] = {
+                description: 'Berhasil request data ke server',
+                schema: {
+                    success: true,
+                    message: 'Sukses mengambil data',
+                    data: {
+                        totalItems: 1,
+                        rows: [
+                            { $ref: '#/definitions/User' }
+                        ],
+                        totalPages: 1,
+                        currentPage: 1
+                    }
+                }
+            }
+
+            #swagger.responses[500] = {
+                description: 'Ada masalah di sisi server',
+                schema: {
+                    success: false,
+                    message: 'Pesan error'
+                }
+            }
+        */
+        
+    } catch (error) {
+
+        return res.status(500).json({
+            success: false,
+            message: error.message 
+        })
+
+    }
+}
+
+const find = async (req, res) => {
+    const id = req.params.id
+    try {
+        
+        const data = await User.findByPk(id, {
+            attributes: ['id', 'username', 'role']
+        })
+        
+        if(!data) {
+            return res.status(404).json({
+                success: false,
+                message: 'Data tidak ditemukan'
+            })
+        }
+
+        return res.status(200).json({
+            success: true,
+            message: 'Data ditemukan',
+            data
+        })
+        
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            message: error.message
+        })
+    }
+
+    /* 
+
+        #swagger.tags = ['User']
+        #swagger.summary = 'Cari data by id'
+        #swagger.security = [{
+            "Token": []
+        }]
+        #swagger.parameters['id'] = {
+            in: 'path',
+            required: true,
+            description: 'Id',
+        }
+
+        #swagger.responses[200] = {
+            description: 'Berhasil request data ke server',
+            schema: {
+                success: true,
+                message: 'Data ditemukan',
+                data: { $ref: '#/definitions/User' }
+            }
+        }
+
+        #swagger.responses[404] = {
+            description: 'Terjadi kesalahan',
+            schema: {
+                success: false,
+                message: 'Data tidak ditemukan',
+            }
+        }
+
+        #swagger.responses[500] = {
+            description: 'Ada masalah di sisi server',
+            schema: {
+                success: false,
+                message: 'Pesan error'
+            }
+        }
+    
+    */
+}
+
+const add = async (req, res) => {
+    try {
+        
+        const { username, password, konfirm_password, role } = req.body
+
+        if(password != konfirm_password) {
+            return res.status(401).json({
+                success: false,
+                message: 'Password dan konfirm password tidak sama',
+            })
+        }
+
+        const hashPassword = await bcrypt.hash(password, 12);
+
+        const data = await User.create({ 
+            username: username,
+            password: hashPassword,
+            role: role
+        })
+        
+        return res.status(201).json({
+            success: false,
+            message: 'Data berhasil ditambahkan',
+            data
+        })
+
+    } catch (error) {
+        
+        return res.status(500).json({
+            success: false,
+            message: error.message,
+        })
+
+    }
+
+    /* 
+
+        #swagger.tags = ['User']
+        #swagger.summary = 'Save data'
+        #swagger.security = [{
+            "Token": []
+        }]
+        #swagger.requestBody = {
+            required: true,
+            content: {
+                "application/json": {
+                    schema: { $ref: "#/definitions/AddUser" },
+                }
+            }
+        }
+
+        #swagger.responses[201] = {
+            description: 'Berhasil mengirim data ke server',
+            schema: {
+                success: true,
+                message: 'Data berhasil ditambahkan',
+                data: { $ref: '#/definitions/User' }
+            }
+        }
+
+        #swagger.responses[401] = {
+            description: 'Ada masalah disisi client',
+            schema: {
+                success: false,
+                message: 'Pesan error'
+            }
+        }
+
+        #swagger.responses[500] = {
+            description: 'Ada masalah di sisi server',
+            schema: {
+                success: false,
+                message: 'Pesan error'
+            }
+        }
+    
+    */
+} 
+
+const update = async (req, res) => {
+    const id = req.params.id
+    const { username, role } = req.body
+
+    try {
+        
+        let data = await User.findByPk(id)
+        if(!data) {
+            return res.status(404).json({
+                success: false,
+                message: 'Data tidak ditemukan'
+            })
+        }
+
+        data.username = username ? username : data.username
+        data.role = role ? role : data.role
+        await data.save()
+        
+        data = await data.reload();
+
+        return res.status(200).json({
+            success: true,
+            message: 'Data berhasil diupdate',
+            data
+        })
+
+    } catch (error) {
+
+        return res.status(500).json({
+            success: false,
+            message: error.message,
+        })
+
+    }
+
+    /*
+        #swagger.tags = ['User']
+        #swagger.summary = 'Update data'
+        #swagger.security = [{
+            "Token": []
+        }]
+        #swagger.parameters['id'] = {
+            in: 'path',
+            required: true,
+            description: 'Id',
+        }
+
+        #swagger.requestBody = {
+          required: true,
+          content: {
+            "application/json": {
+              schema: { $ref: "#/definitions/AddUser" },
+            }
+          }
+        }
+
+        #swagger.responses[200] = {
+            description: 'Berhasil request data ke server',
+            schema: {
+                success: true,
+                message: 'Data berhasil diupdate',
+                data: { $ref: '#/definitions/User' }
+            }
+        }
+
+        #swagger.responses[404] = {
+            description: 'Terjadi kesalahan',
+            schema: {
+                success: false,
+                message: 'Data tidak ditemukan',
+            }
+        }
+
+        #swagger.responses[500] = {
+            description: 'Ada masalah di sisi server',
+            schema: {
+                success: false,
+                message: 'Pesan error'
+            }
+        }
+
+    */
+}
+
+const destroy = async (req, res) => {
+    const id = req.params.id
+
+    try {
+        
+        const user = await User.findByPk(id)
+        if(!user) {
+            return res.status(404).json({
+                success: false,
+                message: 'Data tidak ditemukan'
+            })
+        }
+
+        await user.destroy()
+
+        return res.status(200).json({
+            success: true,
+            message: 'Data berhasil dihapus',
+        })
+
+
+    } catch (error) {
+        
+        return res.status(500).json({
+            success: false,
+            message: error.message,
+        })
+
+    }
+
+    /*
+        #swagger.tags = ['User']
+        #swagger.summary = 'Hapus data'
+        #swagger.security = [{
+            "Token": []
+        }]
+        #swagger.parameters['id'] = {
+            in: 'path',
+            required: true,
+            description: 'Id',
+        }
+
+        #swagger.responses[200] = {
+            description: 'Berhasil request data ke server',
+            schema: {
+                success: true,
+                message: 'Data berhasil dihapus'
+            }
+        }
+
+        #swagger.responses[404] = {
+            description: 'Terjadi kesalahan',
+            schema: {
+                success: false,
+                message: 'Data tidak ditemukan',
+            }
+        }
+
+        #swagger.responses[500] = {
+            description: 'Ada masalah di sisi server',
+            schema: {
+                success: false,
+                message: 'Pesan error'
+            }
+        }
+
+    */
+}
+
+const resetPassword = async (req, res)  => {
+    const id = req.params.id
+    const { password, konfirm_password } = req.body
+
+    try {
+        
+        let data = await User.findByPk(id)
+        if(!user) {
+            return res.status(404).json({
+                success: false,
+                message: 'Data tidak ditemukan'
+            })
+        }
+
+        if(password != konfirm_password) {
+            return res.status(401).json({
+                success: false,
+                message: 'Password dan konfirm password tidak sama'
+            })
+        }
+
+        const hashPassword = await bcrypt.hash(password, 12);
+        data.password = hashPassword ? hashPassword : data.password
+        data.save()
+
+        await data.reload()
+
+        return res.status(200).json({
+            success: true,
+            message: 'Password berhasil diubah',
+        })
+
+    } catch (error) {
+        
+        return res.status(500).json({
+            success: false,
+            message: error.message,
+        })
+
+    }
+
+     /*
+        #swagger.tags = ['User']
+        #swagger.summary = 'Reset password'
+        #swagger.security = [{
+            "Token": []
+        }]
+        #swagger.parameters['id'] = {
+            in: 'path',
+            required: true,
+            description: 'Id',
+        }
+
+        #swagger.requestBody = {
+            required: true,
+            content: {
+                "application/json": {
+                    schema: {
+                        type: 'object',
+                        properties: {
+                            password: {
+                                type: 'string'
+                            },
+                            konfirm_password: {
+                                type: 'string'
+                            }
+                        },
+                        required: ['password', 'konfirm_password']
+                    },
+                }
+            }
+        }
+
+        #swagger.responses[200] = {
+            description: 'Berhasil request data ke server',
+            schema: {
+                success: true,
+                message: 'Password berhasil diubah'
+            }
+        }
+
+        #swagger.responses[404] = {
+            description: 'Terjadi kesalahan',
+            schema: {
+                success: false,
+                message: 'Data tidak ditemukan',
+            }
+        }
+
+        #swagger.responses[500] = {
+            description: 'Ada masalah di sisi server',
+            schema: {
+                success: false,
+                message: 'Pesan error'
+            }
+        }
+
+    */
+}
+
+module.exports = {
+    fetch,
+    find,
+    add,
+    update,
+    destroy,
+    resetPassword
+}

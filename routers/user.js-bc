@@ -1,0 +1,13 @@
+const express = require('express')
+const router = express.Router()
+const userC = require('../controllers/user')
+const { checkIfAdmin, checkIfAuthenticated } = require('../middleware/authentication')
+
+router.get('/', [ checkIfAuthenticated, checkIfAdmin ], userC.fetch)
+router.get('/:id', [ checkIfAuthenticated, checkIfAdmin ], userC.find)
+router.post('/', [ checkIfAuthenticated, checkIfAdmin ], userC.add)
+router.put('/:id', [ checkIfAuthenticated, checkIfAdmin ], userC.update)
+router.delete('/:id', [ checkIfAuthenticated, checkIfAdmin ], userC.destroy)
+router.put('/reset-password/:id', [ checkIfAuthenticated ], userC.resetPassword)
+
+module.exports = router
