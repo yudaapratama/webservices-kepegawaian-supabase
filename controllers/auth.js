@@ -9,7 +9,14 @@ const login = async (req, res) => {
 
     try {
 
-        const { data: user, error } = await supabase.auth.signInWithPassword({ username, password });
+        const { data: user, error } = await supabase.auth.signInWithPassword({ email: username, password: password });
+
+        if(error) {
+            return res.status(400).json({
+                success: false,
+                message: error.message
+            })
+        }
         
         const token = jwt.sign({ user: user }, Buffer.from('J50nW3bT0ken', 'base64'), { expiresIn: '5h' })
 
@@ -22,14 +29,7 @@ const login = async (req, res) => {
         }
 
         console.log(user)
-
-        if(error) {
-            return res.status(400).json({
-                success: false,
-                message: error.message
-            })
-        }
-
+        
         return res.status(200).json({
             success: true,
             message: 'Sukses login',
