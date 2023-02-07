@@ -1,4 +1,5 @@
-const supabase = require('../db/supabase');
+const { supabase, getServiceSupabase} = require('../db/supabase');
+const serviceSupabase = getServiceSupabase();
 const JenisPegawai = require('../models/jenisPegawai')
 const { pagination, pagingData } = require('../utils/helper')
 
@@ -8,7 +9,7 @@ const fetch = async (req, res) => {
 
     try {
         
-        const instansi = await supabase.from('instansi').select('*')
+        const instansi = await serviceSupabase.from('instansi').select('*')
 
         return res.status(200).json({
             success: true,
@@ -19,7 +20,9 @@ const fetch = async (req, res) => {
         /* 
             #swagger.tags = ['Instansi']
             #swagger.summary = 'Semua data Instansi'
-            
+            #swagger.security = [{
+                "Token": []
+            }]
             #swagger.parameters['page'] = {
                 in: 'query',
                 description: 'Parameter untuk pagination',
@@ -68,7 +71,7 @@ const add = async (req, res) => {
         
         const { nama, alamat } = req.body
 
-        const { error } = await supabase.from('instansi').insert({ nama: nama, alamat: alamat })
+        const { error } = await serviceSupabase.from('instansi').insert({ nama: nama, alamat: alamat })
 
         if(error) {
             return res.status(400).json({
@@ -95,7 +98,9 @@ const add = async (req, res) => {
 
         #swagger.tags = ['Instansi']
         #swagger.summary = 'Save data Instansi'
-        
+        #swagger.security = [{
+                "Token": []
+            }]
         #swagger.requestBody = {
           required: true,
           content: {
@@ -132,7 +137,7 @@ const update = async (req, res) => {
         
         const { nama, alamat } = req.body
 
-        const { error } = await supabase.from('instansi').update({ nama: nama, alamat: alamat }).eq('id', id)
+        const { error } = await serviceSupabase.from('instansi').update({ nama: nama, alamat: alamat }).eq('id', id)
 
         if(error) {
             return res.status(400).json({
@@ -159,7 +164,9 @@ const update = async (req, res) => {
     /*
         #swagger.tags = ['Instansi']
         #swagger.summary = 'Update data Instansi'
-        
+        #swagger.security = [{
+                "Token": []
+            }]
         #swagger.parameters['id'] = {
             in: 'path',
             required: true,
@@ -208,7 +215,7 @@ const destroy = async (req, res) => {
 
     try {
 
-        const { error } = await supabase.from('instansi').delete().eq('id', id)
+        const { error } = await serviceSupabase.from('instansi').delete().eq('id', id)
 
         if(error) {
             return res.status(400).json({
@@ -235,7 +242,9 @@ const destroy = async (req, res) => {
     /*
         #swagger.tags = ['Instansi']
         #swagger.summary = 'Hapus data Instansi'
-        
+        #swagger.security = [{
+                "Token": []
+            }]
         #swagger.parameters['id'] = {
             in: 'path',
             required: true,

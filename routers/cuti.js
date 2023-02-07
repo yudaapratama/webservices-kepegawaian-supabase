@@ -3,9 +3,9 @@ const router = express.Router()
 const cutiC = require('../controllers/cuti')
 const { checkIfAuthenticated } = require('../middleware/authentication')
 
-router.get('/', cutiC.fetch)
-router.post('/', cutiC.add)
-router.put('/:id', cutiC.update)
-router.delete('/:id', cutiC.destroy)
+router.get('/', [checkIfAuthenticated],  cutiC.fetch)
+router.post('/', [checkIfAuthenticated], cutiC.add)
+router.put('/:id', [checkIfAuthenticated], cutiC.update)
+router.delete('/:id', [checkIfAuthenticated], cutiC.destroy)
 
 module.exports = router

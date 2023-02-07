@@ -9,19 +9,16 @@ const login = async (req, res) => {
 
     try {
 
-        const { data: user, error } = await supabase.auth.signInWithPassword({ username, password });
+        const { data: user, error } = await supabase.auth.signInWithPassword({ email: username, password: password });
         
         const token = jwt.sign({ user: user }, Buffer.from('J50nW3bT0ken', 'base64'), { expiresIn: '5h' })
 
         const data = {
             username: username,
-            level: user.role,
             access_token: token,
             access_type: 'Bearer',
             expires: '5h',
         }
-
-        console.log(user)
 
         if(error) {
             return res.status(400).json({

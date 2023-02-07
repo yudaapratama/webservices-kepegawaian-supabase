@@ -49,13 +49,13 @@ const doc = {
             "description": "Crud"
         }
     ],
-    // securityDefinitions: {
-    //     Token: {
-    //         type: 'http',
-    //         scheme: 'bearer',
-    //         bearerFormat: 'JWT'
-    //     }
-    // },
+    securityDefinitions: {
+        Token: {
+            type: 'http',
+            scheme: 'bearer',
+            bearerFormat: 'JWT'
+        }
+    },
     '@definitions': {
         Pegawai: {
             type: 'object',

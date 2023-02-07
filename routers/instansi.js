@@ -4,9 +4,9 @@ const JenisPegawai = require('../models/jenisPegawai')
 const { checkIfAdmin, checkIfAuthenticated } = require('../middleware/authentication')
 const instansiC = require('../controllers/instansi')
 
-router.get('/', instansiC.fetch)
-router.post('/', instansiC.add)
-router.put('/:id', instansiC.update)
-router.delete('/:id', instansiC.destroy)
+router.get('/', [checkIfAuthenticated], instansiC.fetch)
+router.post('/', [checkIfAuthenticated], instansiC.add)
+router.put('/:id', [checkIfAuthenticated], instansiC.update)
+router.delete('/:id', [checkIfAuthenticated], instansiC.destroy)
 
 module.exports = router

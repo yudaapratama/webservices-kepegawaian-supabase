@@ -398,6 +398,47 @@
               }
             }
           },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          },
           "500": {
             "description": "Ada masalah di sisi server",
             "content": {
@@ -439,7 +480,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "Token": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -496,8 +542,46 @@
               }
             }
           },
-          "400": {
-            "description": "Bad Request"
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
           },
           "500": {
             "description": "Ada masalah di sisi server",
@@ -541,6 +625,11 @@
             }
           }
         },
+        "security": [
+          {
+            "Token": []
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -565,10 +654,10 @@
             "name": "id",
             "in": "path",
             "required": true,
+            "description": "Id jabatan",
             "schema": {
               "type": "string"
-            },
-            "description": "Id jabatan"
+            }
           }
         ],
         "responses": {
@@ -651,6 +740,47 @@
                     "message": {
                       "type": "string",
                       "example": "Pesan error"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
                     }
                   },
                   "xml": {
@@ -702,6 +832,11 @@
             }
           }
         },
+        "security": [
+          {
+            "Token": []
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -724,10 +859,10 @@
             "name": "id",
             "in": "path",
             "required": true,
+            "description": "Id jabatan",
             "schema": {
               "type": "string"
-            },
-            "description": "Id jabatan"
+            }
           }
         ],
         "responses": {
@@ -813,6 +948,47 @@
               }
             }
           },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          },
           "500": {
             "description": "Ada masalah di sisi server",
             "content": {
@@ -854,7 +1030,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "Token": []
+          }
+        ]
       }
     },
     "/instansi/": {
@@ -960,6 +1141,47 @@
               }
             }
           },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          },
           "500": {
             "description": "Ada masalah di sisi server",
             "content": {
@@ -1001,7 +1223,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "Token": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -1058,8 +1285,46 @@
               }
             }
           },
-          "400": {
-            "description": "Bad Request"
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
           },
           "500": {
             "description": "Ada masalah di sisi server",
@@ -1103,6 +1368,11 @@
             }
           }
         },
+        "security": [
+          {
+            "Token": []
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -1127,10 +1397,10 @@
             "name": "id",
             "in": "path",
             "required": true,
+            "description": "Id Instansi",
             "schema": {
               "type": "string"
-            },
-            "description": "Id Instansi"
+            }
           }
         ],
         "responses": {
@@ -1181,8 +1451,46 @@
               }
             }
           },
-          "400": {
-            "description": "Bad Request"
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
           },
           "404": {
             "description": "Terjadi kesalahan",
@@ -1267,6 +1575,11 @@
             }
           }
         },
+        "security": [
+          {
+            "Token": []
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -1289,10 +1602,10 @@
             "name": "id",
             "in": "path",
             "required": true,
+            "description": "Id Instansi",
             "schema": {
               "type": "string"
-            },
-            "description": "Id Instansi"
+            }
           }
         ],
         "responses": {
@@ -1337,8 +1650,46 @@
               }
             }
           },
-          "400": {
-            "description": "Bad Request"
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
           },
           "404": {
             "description": "Terjadi kesalahan",
@@ -1422,7 +1773,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "Token": []
+          }
+        ]
       }
     },
     "/divisi/": {
@@ -1528,6 +1884,47 @@
               }
             }
           },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          },
           "500": {
             "description": "Ada masalah di sisi server",
             "content": {
@@ -1569,7 +1966,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "Token": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -1626,8 +2028,46 @@
               }
             }
           },
-          "400": {
-            "description": "Bad Request"
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
           },
           "500": {
             "description": "Ada masalah di sisi server",
@@ -1671,6 +2111,11 @@
             }
           }
         },
+        "security": [
+          {
+            "Token": []
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -1695,10 +2140,10 @@
             "name": "id",
             "in": "path",
             "required": true,
+            "description": "Id Divisi",
             "schema": {
               "type": "string"
-            },
-            "description": "Id Divisi"
+            }
           }
         ],
         "responses": {
@@ -1749,8 +2194,46 @@
               }
             }
           },
-          "400": {
-            "description": "Bad Request"
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
           },
           "404": {
             "description": "Terjadi kesalahan",
@@ -1835,6 +2318,11 @@
             }
           }
         },
+        "security": [
+          {
+            "Token": []
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -1857,10 +2345,10 @@
             "name": "id",
             "in": "path",
             "required": true,
+            "description": "Id Divisi",
             "schema": {
               "type": "string"
-            },
-            "description": "Id Divisi"
+            }
           }
         ],
         "responses": {
@@ -1905,8 +2393,46 @@
               }
             }
           },
-          "400": {
-            "description": "Bad Request"
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
           },
           "404": {
             "description": "Terjadi kesalahan",
@@ -1990,7 +2516,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "Token": []
+          }
+        ]
       }
     },
     "/pegawai/": {
@@ -2096,6 +2627,47 @@
               }
             }
           },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          },
           "500": {
             "description": "Ada masalah di sisi server",
             "content": {
@@ -2137,7 +2709,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "Token": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -2194,8 +2771,46 @@
               }
             }
           },
-          "400": {
-            "description": "Bad Request"
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
           },
           "500": {
             "description": "Ada masalah di sisi server",
@@ -2239,6 +2854,11 @@
             }
           }
         },
+        "security": [
+          {
+            "Token": []
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -2263,10 +2883,10 @@
             "name": "id",
             "in": "path",
             "required": true,
+            "description": "Id pegawai",
             "schema": {
               "type": "string"
-            },
-            "description": "Id pegawai"
+            }
           }
         ],
         "responses": {
@@ -2317,8 +2937,46 @@
               }
             }
           },
-          "400": {
-            "description": "Bad Request"
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
           },
           "404": {
             "description": "Terjadi kesalahan",
@@ -2403,6 +3061,11 @@
             }
           }
         },
+        "security": [
+          {
+            "Token": []
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -2425,10 +3088,10 @@
             "name": "id",
             "in": "path",
             "required": true,
+            "description": "Id pegawai",
             "schema": {
               "type": "string"
-            },
-            "description": "Id pegawai"
+            }
           }
         ],
         "responses": {
@@ -2473,8 +3136,46 @@
               }
             }
           },
-          "400": {
-            "description": "Bad Request"
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
           },
           "404": {
             "description": "Terjadi kesalahan",
@@ -2558,7 +3259,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "Token": []
+          }
+        ]
       }
     },
     "/golongan/": {
@@ -2655,6 +3361,47 @@
                     "currentPage": {
                       "type": "number",
                       "example": 1
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
                     }
                   },
                   "xml": {
@@ -2767,8 +3514,46 @@
               }
             }
           },
-          "400": {
-            "description": "Bad Request"
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
           },
           "500": {
             "description": "Ada masalah di sisi server",
@@ -2841,10 +3626,10 @@
             "name": "id",
             "in": "path",
             "required": true,
+            "description": "Id",
             "schema": {
               "type": "string"
-            },
-            "description": "Id"
+            }
           }
         ],
         "responses": {
@@ -2895,8 +3680,46 @@
               }
             }
           },
-          "400": {
-            "description": "Bad Request"
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
           },
           "404": {
             "description": "Terjadi kesalahan",
@@ -3008,10 +3831,10 @@
             "name": "id",
             "in": "path",
             "required": true,
+            "description": "Id",
             "schema": {
               "type": "string"
-            },
-            "description": "Id"
+            }
           }
         ],
         "responses": {
@@ -3056,8 +3879,46 @@
               }
             }
           },
-          "400": {
-            "description": "Bad Request"
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
           },
           "404": {
             "description": "Terjadi kesalahan",
@@ -3252,6 +4113,47 @@
               }
             }
           },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          },
           "500": {
             "description": "Ada masalah di sisi server",
             "content": {
@@ -3293,7 +4195,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "Token": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -3350,8 +4257,46 @@
               }
             }
           },
-          "400": {
-            "description": "Bad Request"
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
           },
           "500": {
             "description": "Ada masalah di sisi server",
@@ -3395,6 +4340,11 @@
             }
           }
         },
+        "security": [
+          {
+            "Token": []
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -3419,10 +4369,10 @@
             "name": "id",
             "in": "path",
             "required": true,
+            "description": "Id",
             "schema": {
               "type": "string"
-            },
-            "description": "Id"
+            }
           }
         ],
         "responses": {
@@ -3473,8 +4423,46 @@
               }
             }
           },
-          "400": {
-            "description": "Bad Request"
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
           },
           "404": {
             "description": "Terjadi kesalahan",
@@ -3559,6 +4547,11 @@
             }
           }
         },
+        "security": [
+          {
+            "Token": []
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -3581,10 +4574,10 @@
             "name": "id",
             "in": "path",
             "required": true,
+            "description": "Id",
             "schema": {
               "type": "string"
-            },
-            "description": "Id"
+            }
           }
         ],
         "responses": {
@@ -3629,8 +4622,46 @@
               }
             }
           },
-          "400": {
-            "description": "Bad Request"
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
           },
           "404": {
             "description": "Terjadi kesalahan",
@@ -3714,7 +4745,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "Token": []
+          }
+        ]
       }
     },
     "/mutasi/": {
@@ -3820,6 +4856,47 @@
               }
             }
           },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          },
           "500": {
             "description": "Ada masalah di sisi server",
             "content": {
@@ -3861,7 +4938,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "Token": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -3918,8 +5000,46 @@
               }
             }
           },
-          "400": {
-            "description": "Bad Request"
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
           },
           "500": {
             "description": "Ada masalah di sisi server",
@@ -3963,6 +5083,11 @@
             }
           }
         },
+        "security": [
+          {
+            "Token": []
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -3987,10 +5112,10 @@
             "name": "id",
             "in": "path",
             "required": true,
+            "description": "Id",
             "schema": {
               "type": "string"
-            },
-            "description": "Id"
+            }
           }
         ],
         "responses": {
@@ -4041,8 +5166,46 @@
               }
             }
           },
-          "400": {
-            "description": "Bad Request"
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
           },
           "404": {
             "description": "Terjadi kesalahan",
@@ -4127,6 +5290,11 @@
             }
           }
         },
+        "security": [
+          {
+            "Token": []
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -4149,10 +5317,10 @@
             "name": "id",
             "in": "path",
             "required": true,
+            "description": "Id ",
             "schema": {
               "type": "string"
-            },
-            "description": "Id "
+            }
           }
         ],
         "responses": {
@@ -4197,8 +5365,46 @@
               }
             }
           },
-          "400": {
-            "description": "Bad Request"
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
           },
           "404": {
             "description": "Terjadi kesalahan",
@@ -4282,7 +5488,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "Token": []
+          }
+        ]
       }
     },
     "/cuti/": {
@@ -4388,6 +5599,47 @@
               }
             }
           },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          },
           "500": {
             "description": "Ada masalah di sisi server",
             "content": {
@@ -4429,7 +5681,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "Token": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -4486,8 +5743,46 @@
               }
             }
           },
-          "400": {
-            "description": "Bad Request"
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
           },
           "500": {
             "description": "Ada masalah di sisi server",
@@ -4531,6 +5826,11 @@
             }
           }
         },
+        "security": [
+          {
+            "Token": []
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -4555,10 +5855,10 @@
             "name": "id",
             "in": "path",
             "required": true,
+            "description": "Id",
             "schema": {
               "type": "string"
-            },
-            "description": "Id"
+            }
           }
         ],
         "responses": {
@@ -4609,8 +5909,46 @@
               }
             }
           },
-          "400": {
-            "description": "Bad Request"
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
           },
           "404": {
             "description": "Terjadi kesalahan",
@@ -4695,6 +6033,11 @@
             }
           }
         },
+        "security": [
+          {
+            "Token": []
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -4717,10 +6060,10 @@
             "name": "id",
             "in": "path",
             "required": true,
+            "description": "Id ",
             "schema": {
               "type": "string"
-            },
-            "description": "Id "
+            }
           }
         ],
         "responses": {
@@ -4765,8 +6108,46 @@
               }
             }
           },
-          "400": {
-            "description": "Bad Request"
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Gagal otentikasi !"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
           },
           "404": {
             "description": "Terjadi kesalahan",
@@ -4850,7 +6231,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "Token": []
+          }
+        ]
       }
     }
   },
@@ -5201,6 +6587,13 @@
             "type": "string"
           }
         }
+      }
+    },
+    "securitySchemes": {
+      "Token": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
       }
     }
   }

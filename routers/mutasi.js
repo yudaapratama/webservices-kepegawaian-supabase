@@ -18,9 +18,9 @@ const diskStorage = multer.diskStorage({
     }
 })
 
-router.get('/', mutasiC.fetch)
-router.post('/', mutasiC.add)
-router.put('/:id', mutasiC.update)
-router.delete('/:id', mutasiC.destroy)
+router.get('/', [checkIfAuthenticated], mutasiC.fetch)
+router.post('/', [checkIfAuthenticated], mutasiC.add)
+router.put('/:id', [checkIfAuthenticated], mutasiC.update)
+router.delete('/:id', [checkIfAuthenticated], mutasiC.destroy)
 
 module.exports = router

@@ -1,4 +1,5 @@
-const supabase = require('../db/supabase')
+const { supabase, getServiceSupabase} = require('../db/supabase');
+const serviceSupabase = getServiceSupabase();
 const { pagination, pagingData } = require('../utils/helper')
 
 const fetch = async (req, res) => {
@@ -8,7 +9,7 @@ const fetch = async (req, res) => {
 
     try {
         
-       const golongan = await supabase.from("golongan").select("*")
+       const golongan = await serviceSupabase.from("golongan").select("*")
 
         return res.status(200).json({
             success: true,
@@ -69,7 +70,7 @@ const add = async (req, res) => {
         
         const { nama, keterangan } = req.body
 
-        const { error } = await supabase.from('golongan').insert({ 
+        const { error } = await serviceSupabase.from('golongan').insert({ 
             keterangan: keterangan,
             nama: nama,
         })
@@ -139,7 +140,7 @@ const update = async (req, res) => {
         
         const { nama, keterangan } = req.body
         
-        const { error } = await supabase.from('golongan').update({ 
+        const { error } = await serviceSupabase.from('golongan').update({ 
             keterangan: keterangan,
             nama: nama,
         }).eq('id', id)
@@ -220,7 +221,7 @@ const destroy = async (req, res) => {
 
     try {
         
-        const { error } = await supabase.from('golongan').delete().eq('id', id)
+        const { error } = await serviceSupabase.from('golongan').delete().eq('id', id)
 
         if(error) {
             return res.status(400).json({

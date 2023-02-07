@@ -1,4 +1,5 @@
-const supabase = require('../db/supabase')
+const { supabase, getServiceSupabase} = require('../db/supabase');
+const serviceSupabase = getServiceSupabase();
 const Pendidikan = require('../models/pendidikan')
 const { pagination, pagingData } = require('../utils/helper')
 
@@ -9,7 +10,7 @@ const fetch = async (req, res) => {
 
     try {
         
-        const pendidikan = await supabase.from("pendidikan").select("*");
+        const pendidikan = await serviceSupabase.from("pendidikan").select("*");
 
         return res.status(200).json({
             success: true,
@@ -20,7 +21,9 @@ const fetch = async (req, res) => {
         /* 
             #swagger.tags = ['Pendidikan']
             #swagger.summary = 'Semua data'
-            
+            #swagger.security = [{
+                "Token": []
+            }]
             #swagger.parameters['page'] = {
                 in: 'query',
                 description: 'Parameter untuk pagination',
@@ -68,7 +71,7 @@ const add = async (req, res) => {
         
         const { nama, jenjang, jurusan, tahunMasuk, tahunLulus, gelar, nipPegawai } = req.body
  
-        const { error } = await supabase.from('pendidikan').insert({ 
+        const { error } = await serviceSupabase.from('pendidikan').insert({ 
             jenjang: jenjang,
             nama: nama,
             jurusan: jurusan,
@@ -103,7 +106,9 @@ const add = async (req, res) => {
 
         #swagger.tags = ['Pendidikan']
         #swagger.summary = 'Save data'
-        
+        #swagger.security = [{
+                "Token": []
+            }]
 
         #swagger.requestBody = {
           required: true,
@@ -140,7 +145,7 @@ const update = async (req, res) => {
 
     try {
         
-        const { error } = await supabase.from('pendidikan').update({ 
+        const { error } = await serviceSupabase.from('pendidikan').update({ 
             jenjang: jenjang,
             nama: nama,
             jurusan: jurusan,
@@ -175,7 +180,9 @@ const update = async (req, res) => {
     /*
         #swagger.tags = ['Pendidikan']
         #swagger.summary = 'Update data'
-        
+        #swagger.security = [{
+                "Token": []
+            }]
         #swagger.parameters['id'] = {
             in: 'path',
             required: true,
@@ -224,7 +231,7 @@ const destroy = async (req, res) => {
 
     try {
         
-        const { error } = await supabase.from('pendidikan').delete().eq('id', id)
+        const { error } = await serviceSupabase.from('pendidikan').delete().eq('id', id)
 
         if(error) {
             return res.status(400).json({
@@ -251,7 +258,9 @@ const destroy = async (req, res) => {
     /*
         #swagger.tags = ['Pendidikan']
         #swagger.summary = 'Hapus data'
-        
+        #swagger.security = [{
+                "Token": []
+            }]
         #swagger.parameters['id'] = {
             in: 'path',
             required: true,

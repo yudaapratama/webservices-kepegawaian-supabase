@@ -3,9 +3,9 @@ const router = express.Router()
 const golonganC = require('../controllers/golongan')
 const { checkIfAuthenticated } = require('../middleware/authentication')
 
-router.get('/', golonganC.fetch)
-router.post('/', golonganC.add)
-router.put('/:id', golonganC.update)
-router.delete('/:id', golonganC.destroy)
+router.get('/', [checkIfAuthenticated], golonganC.fetch)
+router.post('/', [checkIfAuthenticated], golonganC.add)
+router.put('/:id', [checkIfAuthenticated], golonganC.update)
+router.delete('/:id', [checkIfAuthenticated], golonganC.destroy)
 
 module.exports = router
