@@ -9,13 +9,13 @@ Back-end dari sistem kepegawaian PLN.
 Clone projek, dengan mengetikkan di cmd/terminal
 
 ```bash
-  git clone https://github.com/yudaapratama/webservices-kepegawaian.git
+  git clone https://github.com/yudaapratama/webservices-kepegawaian-supabase.git
 ```
 
 Masuk ke folder projek
 
 ```bash
-  cd webservices-kepegawaian
+  cd webservices-kepegawaian-supabase
 ```
 
 Install modul
