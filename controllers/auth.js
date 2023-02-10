@@ -1,7 +1,7 @@
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const User = require("../models/user")
-const supabase = require('../db/supabase')
+const { supabase } = require('../db/supabase')
 
 const login = async (req, res) => {
 
