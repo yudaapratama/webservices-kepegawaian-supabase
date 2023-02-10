@@ -177,7 +177,7 @@ const update = async (req, res) => {
           required: true,
           content: {
             "application/json": {
-              schema: { $ref: "#/definitions/AddJenisPegawai" },
+              schema: { $ref: "#/definitions/AddInstansi" },
             }
           }
         }
