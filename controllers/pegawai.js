@@ -98,7 +98,7 @@ const add = async (req, res) => {
 
         if(error) {
             return res.status(400).json({
-                success: false,
+                success: true,
                 message: error.message
             })
         }

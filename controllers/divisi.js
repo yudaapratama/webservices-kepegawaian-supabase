@@ -82,7 +82,7 @@ const add = async (req, res) => {
         }
         
         return res.status(201).json({
-            success: false,
+            success: true,
             message: 'Data berhasil ditambahkan'
         })
 
